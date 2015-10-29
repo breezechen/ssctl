@@ -26,22 +26,30 @@ int info()
     if (doc.Parse(str.c_str()).HasParseError())
         return -1;
 
+//     {
+//         StringBuffer sb;
+//         PrettyWriter<StringBuffer> writer(sb);
+//         doc.Accept(writer);
+//         std::cout << sb.GetString();
+//     }
+
+
+//     Value adoc(kObjectType);
+//     adoc.AddMember("server_port", doc["server_port"], doc.GetAllocator());
+//     adoc.AddMember("password", doc["password"], doc.GetAllocator());
+
     {
         StringBuffer sb;
         PrettyWriter<StringBuffer> writer(sb);
-        doc.Accept(writer);
-        std::cout << sb.GetString();
-    }
-
-
-    Value adoc(kObjectType);
-    adoc.AddMember("server_port", doc["server_port"], doc.GetAllocator());
-    adoc.AddMember("password", doc["password"], doc.GetAllocator());
-
-    {
-        StringBuffer sb;
-        PrettyWriter<StringBuffer> writer(sb);
-        adoc.Accept(writer);
+//         adoc.Accept(writer);
+//         std::cout << sb.GetString();
+     
+        writer.StartObject();
+        writer.String("server_port");
+        writer.Uint(doc["server_port"].GetInt());
+        writer.String("password");
+        writer.String(doc["password"].GetString());
+        writer.EndObject();
         std::cout << sb.GetString();
     }
 
