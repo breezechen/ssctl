@@ -94,7 +94,7 @@ int reset()
         StringBuffer sb;
         PrettyWriter<StringBuffer> writer(sb);
         new_conf.Accept(writer);
-        std::cout << sb.GetString();
+        std::cout << sb.GetString() << std::endl;
     }
 
     conf["server_port"] = new_conf["server_port"];
