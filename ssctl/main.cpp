@@ -87,8 +87,7 @@ int reset()
 
     Document new_conf(kObjectType);
     new_conf.AddMember("server_port", port, conf.GetAllocator());
-   Value vp(passwd.c_str(), passwd.length(), conf.GetAllocator());
-
+    Value vp(passwd.c_str(), passwd.length(), conf.GetAllocator());
     new_conf.AddMember("password", vp, conf.GetAllocator());
 
     {
