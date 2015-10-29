@@ -50,7 +50,7 @@ int info()
         writer.String("password");
         writer.String(doc["password"].GetString());
         writer.EndObject();
-        std::cout << sb.GetString();
+        std::cout << sb.GetString() << std::endl;
     }
 
     return 0;
