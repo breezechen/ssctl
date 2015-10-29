@@ -86,8 +86,8 @@ int reset()
     }
 
     Document new_conf(kObjectType);
-    new_conf.AddMember("server_port", port, new_conf.GetAllocator());
-    new_conf.AddMember("password", Value(passwd.c_str(), new_conf.GetAllocator()), new_conf.GetAllocator());
+    new_conf.AddMember("server_port", port, conf.GetAllocator());
+    new_conf.AddMember("password", Value(passwd.c_str(), passwd.length(), conf.GetAllocator()), conf.GetAllocator());
 
     {
         StringBuffer sb;
